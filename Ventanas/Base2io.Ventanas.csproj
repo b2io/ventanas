@@ -102,6 +102,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ValueConverters\EnumStringValueConverter.cs" />
     <Compile Include="Enums\WindowPosition.cs" />
     <Compile Include="IconsDictionary.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
