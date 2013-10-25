@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="640" measuredH="460" mockupW="600" mockupH="460">
+<mockup version="1.0" skin="wireframe" fontFace="Balsamiq Sans" measuredW="640" measuredH="460" mockupW="600" mockupH="460">
   <controls>
     <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="40" y="0" w="600" h="460" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
@@ -10,65 +10,65 @@
         <text>Ventanas%20Preferences</text>
       </controlProperties>
     </control>
-    <control controlID="3" controlTypeID="com.balsamiq.mockups::Button" x="472" y="429" w="-1" h="-1" measuredW="73" measuredH="27" zOrder="1" locked="false" isInGroup="-1">
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Button" x="560" y="429" w="-1" h="-1" measuredW="70" measuredH="24" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
         <icon>SaveIcon%7Cxsmall</icon>
         <text>Save</text>
       </controlProperties>
     </control>
-    <control controlID="4" controlTypeID="com.balsamiq.mockups::Button" x="548" y="429" w="-1" h="-1" measuredW="83" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Button" x="472" y="429" w="-1" h="-1" measuredW="82" measuredH="24" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
         <icon>TrashIcon%7Cxsmall</icon>
         <text>Cancel</text>
       </controlProperties>
     </control>
     <control controlID="5" controlTypeID="com.balsamiq.mockups::Canvas" x="320" y="97" w="300" h="222" measuredW="100" measuredH="70" zOrder="3" locked="false" isInGroup="-1"/>
-    <control controlID="6" controlTypeID="com.balsamiq.mockups::Label" x="55" y="73" w="-1" h="-1" measuredW="58" measuredH="24" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Label" x="55" y="73" w="-1" h="-1" measuredW="56" measuredH="24" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <size>16</size>
         <text>Position</text>
       </controlProperties>
     </control>
-    <control controlID="10" controlTypeID="com.balsamiq.mockups::Label" x="320" y="73" w="-1" h="-1" measuredW="55" measuredH="24" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::Label" x="320" y="73" w="-1" h="-1" measuredW="50" measuredH="24" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <size>16</size>
         <text>Region</text>
       </controlProperties>
     </control>
-    <control controlID="11" controlTypeID="com.balsamiq.mockups::Label" x="320" y="335" w="-1" h="-1" measuredW="98" measuredH="21" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Label" x="320" y="335" w="-1" h="-1" measuredW="97" measuredH="21" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <align>right</align>
         <bold>true</bold>
         <text>Current%20Hotkey%3A</text>
       </controlProperties>
     </control>
-    <control controlID="12" controlTypeID="com.balsamiq.mockups::Label" x="433" y="337" w="-1" h="-1" measuredW="131" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Label" x="433" y="337" w="-1" h="-1" measuredW="127" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <bold>false</bold>
         <text>Ctrl%20+%20Alt%20+%20NumPad3</text>
       </controlProperties>
     </control>
-    <control controlID="13" controlTypeID="com.balsamiq.mockups::Label" x="339" y="365" w="-1" h="-1" measuredW="79" measuredH="21" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Label" x="339" y="365" w="-1" h="-1" measuredW="76" measuredH="21" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
         <align>right</align>
         <bold>true</bold>
         <text>New%20Hotkey%3A</text>
       </controlProperties>
     </control>
-    <control controlID="14" controlTypeID="com.balsamiq.mockups::TextInput" x="433" y="362" w="199" h="-1" measuredW="79" measuredH="27" zOrder="9" locked="false" isInGroup="-1"/>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::TextInput" x="433" y="362" w="199" h="-1" measuredW="79" measuredH="23" zOrder="9" locked="false" isInGroup="-1"/>
     <control controlID="15" controlTypeID="com.balsamiq.mockups::Icon" x="610" y="367" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
         <icon>CircledXIcon%7Cxsmall</icon>
       </controlProperties>
     </control>
-    <control controlID="16" controlTypeID="com.balsamiq.mockups::DataGrid" x="55" y="97" w="-1" h="-1" measuredW="247" measuredH="323" zOrder="11" locked="false" isInGroup="-1">
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::DataGrid" x="55" y="97" w="-1" h="-1" measuredW="249" measuredH="318" zOrder="11" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>square</borderStyle>
         <selectedIndex>3</selectedIndex>
         <text>Window%20Position%2C%20Hotkey%0ALeft%201/3%2C%20Ctrl%20+%20Alt%20+%20NumPad1%0ALeft%201/2%2C%20Ctrl%20+%20Alt%20+%20NumPad4%0ALeft%202/3%2C%20Ctrl%20+%20Alt%20+%20NumPad7%0ARight%201/3%2C%20Ctrl%20+%20Alt%20+%20NumPad3%0ARight%201/2%2C%20Ctrl%20+%20Alt%20+%20NumPad6%0ARight%202/3%2C%20Ctrl%20+%20Alt%20+%20NumPad9%0ATop%201/2%2C%20Ctrl%20+%20Alt%20+%20NumPad8%0ABottom%201/2%2C%20Ctrl%20+%20Alt%20+%20NumPad2%0ACenter%2C%20Ctrl%20+%20Alt%20+%20NumPad5%0AFill%2C%20Ctrl%20+%20Alt%20+%20NumPad0</text>
       </controlProperties>
     </control>
-    <control controlID="17" controlTypeID="com.balsamiq.mockups::Button" x="576" y="393" w="-1" h="-1" measuredW="55" measuredH="27" zOrder="12" locked="false" isInGroup="-1">
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::Button" x="576" y="393" w="-1" h="-1" measuredW="54" measuredH="24" zOrder="12" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Apply</text>
       </controlProperties>
