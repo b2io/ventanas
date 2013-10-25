@@ -5,7 +5,7 @@ using Base2io.Util.EnumUtil;
 
 namespace Base2io.Ventanas.ValueConverters
 {
-    class EnumStringValueConverter : IValueConverter
+    class EnumStringConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

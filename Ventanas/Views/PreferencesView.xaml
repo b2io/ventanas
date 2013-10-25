@@ -10,7 +10,8 @@
         MinWidth="400"
         >
     <Window.Resources>
-        <converters:EnumStringValueConverter x:Key="EnumConverter" />
+        <converters:EnumStringConverter x:Key="EnumConverter" />
+        <converters:PositionHotkeyConverter x:Key="PositionHotkeyConverter" />
         
         <Style TargetType="Button">
             <Setter Property="Padding" Value="10,5" />
@@ -53,7 +54,10 @@
                 <ListBox ItemsSource="{Binding CustomizedHotkeys}" Grid.Row="1">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Label Content="{Binding WindowPosition, Converter={StaticResource EnumConverter}}" />
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding WindowPosition, Converter={StaticResource EnumConverter}}" />
+                                <Label Content="{Binding Converter={StaticResource PositionHotkeyConverter}}" />
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
