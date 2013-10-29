@@ -103,7 +103,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Properties\Annotations1.cs" />
-    <Compile Include="ValueConverters\PositionHotkeyConverter.cs" />
     <Compile Include="ValueConverters\EnumStringConverter.cs" />
     <Compile Include="Enums\WindowPosition.cs" />
     <Compile Include="IconsDictionary.cs" />

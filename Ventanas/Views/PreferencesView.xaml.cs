@@ -1,16 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using Base2io.Ventanas.Logic;
 using Base2io.Ventanas.Model;
 
-namespace Base2io.Ventanas
+namespace Base2io.Ventanas.Views
 {
     /// <summary>
     /// Interaction logic for Preferences.xaml
     /// </summary>
-    public partial class Preferences : Window
+    public partial class Preferences
     {
         #region Constructor
 

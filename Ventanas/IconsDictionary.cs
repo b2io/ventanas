@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using Base2io.Ventanas.Views;
 
 namespace Base2io.Ventanas
 {

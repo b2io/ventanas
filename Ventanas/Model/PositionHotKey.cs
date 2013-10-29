@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using Base2io.Ventanas.Annotations;
@@ -21,6 +22,7 @@ namespace Base2io.Ventanas.Model
                 {
                     _windowPosition = value;
                     OnPropertyChanged("WindowPosition");
+                    OnPropertyChanged("KeyBindingString");
                 }
             }
         }
@@ -35,6 +37,7 @@ namespace Base2io.Ventanas.Model
                 {
                     _keyCode = value;
                     OnPropertyChanged("KeyCode");
+                    OnPropertyChanged("KeyBindingString");
                 }
             }
         }
@@ -49,6 +52,7 @@ namespace Base2io.Ventanas.Model
                 {
                     _isCtrlKeyUsed = value;
                     OnPropertyChanged("IsCtrlKeyUsed");
+                    OnPropertyChanged("KeyBindingString");
                 }
             }
         }
@@ -63,6 +67,7 @@ namespace Base2io.Ventanas.Model
                 {
                     _isAltKeyUsed = value;
                     OnPropertyChanged("IsAltKeyUsed");
+                    OnPropertyChanged("KeyBindingString");
                 }
             }
         }
@@ -77,6 +82,7 @@ namespace Base2io.Ventanas.Model
                 {
                     _isShiftKeyUsed = value;
                     OnPropertyChanged("IsShiftKeyUsed");
+                    OnPropertyChanged("KeyBindingString");
                 }
             }
         }
@@ -91,17 +97,51 @@ namespace Base2io.Ventanas.Model
                 {
                     _isWinKeyUsed = value;
                     OnPropertyChanged("IsWinKeyUsed");
+                    OnPropertyChanged("KeyBindingString");
                 }
             }
-        } 
+        }
+
+        public string KeyBindingString
+        {
+            get
+            {
+                List<string> keyCombination = new List<string>();
+
+                if (IsCtrlKeyUsed)
+                {
+                    keyCombination.Add("Ctrl");
+                }
+
+                if (IsAltKeyUsed)
+                {
+                    keyCombination.Add("Alt");
+                }
+
+                if (IsShiftKeyUsed)
+                {
+                    keyCombination.Add("Shift");
+                }
+
+                if (IsWinKeyUsed)
+                {
+                    keyCombination.Add("Win");
+                }
+
+                keyCombination.Add(KeyCode.ToString());
+
+                return string.Join("+", keyCombination);
+            }
+        }
 
         #endregion
-        
+
         public void Clear()
         {
             KeyCode = Keys.None;
             IsCtrlKeyUsed = IsAltKeyUsed = IsShiftKeyUsed = IsWinKeyUsed = false;
         }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
