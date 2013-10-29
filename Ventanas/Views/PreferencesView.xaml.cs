@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using Base2io.Ventanas.Logic;
 using Base2io.Ventanas.Model;
@@ -14,7 +16,7 @@ namespace Base2io.Ventanas
 
         public Preferences()
         {
-            CustomizedHotkeys = new List<PositionHotkey>(WindowPlacement.Instance.PositionHotkeys);
+            CustomizedHotkeys = new ObservableCollection<PositionHotkey>(WindowPlacement.Instance.PositionHotkeys);
             InitializeComponent();
         } 
 
@@ -22,7 +24,7 @@ namespace Base2io.Ventanas
 
         #region Properties
 
-        public List<PositionHotkey> CustomizedHotkeys { get; set; }
+        public ObservableCollection<PositionHotkey> CustomizedHotkeys { get; set; }
 
         #endregion
 
@@ -35,7 +37,7 @@ namespace Base2io.Ventanas
         
         private void SaveButtonClick(object sender, RoutedEventArgs e)
         {
-            WindowPlacement.Instance.RegisterHotkeys(CustomizedHotkeys);
+            WindowPlacement.Instance.RegisterHotkeys(CustomizedHotkeys.ToList());
             Close();
         }
 

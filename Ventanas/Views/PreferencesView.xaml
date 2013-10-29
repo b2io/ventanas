@@ -57,7 +57,7 @@
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Window Position" DisplayMemberBinding="{Binding WindowPosition, Converter={StaticResource EnumConverter}}" />
-                            <GridViewColumn Header="Hotkey" DisplayMemberBinding="{Binding Converter={StaticResource PositionHotkeyConverter}}" />
+                            <GridViewColumn Header="Hotkey" DisplayMemberBinding="{Binding UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PositionHotkeyConverter}}" />
                         </GridView>
                     </ListView.View>
                 </ListView>
