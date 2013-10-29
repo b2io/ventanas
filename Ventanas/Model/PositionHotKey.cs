@@ -13,5 +13,11 @@ namespace Base2io.Ventanas.Model
         public bool IsAltKeyUsed { get; set; }
         public bool IsShiftKeyUsed { get; set; }
         public bool IsWinKeyUsed { get; set; }
+
+        public void Clear()
+        {
+            KeyCode = Keys.None;
+            IsCtrlKeyUsed = IsAltKeyUsed = IsShiftKeyUsed = IsWinKeyUsed = false;
+        }
     }
 }

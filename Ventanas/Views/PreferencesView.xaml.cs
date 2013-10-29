@@ -40,5 +40,16 @@ namespace Base2io.Ventanas
         }
 
         #endregion
+
+        private void RemoveButtonClick(object sender, RoutedEventArgs e)
+        {
+            // Get the selected hotkey item.
+            PositionHotkey positionHotkey = HotkeyList.SelectedItem as PositionHotkey;
+
+            if (positionHotkey != null)
+            {
+                positionHotkey.Clear();
+            }
+        }
     }
 }
