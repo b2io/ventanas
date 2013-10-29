@@ -1,8 +1,12 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Forms;
+using System.Windows.Input;
 using Base2io.Ventanas.Logic;
 using Base2io.Ventanas.Model;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 
 namespace Base2io.Ventanas.Views
 {
@@ -51,6 +55,20 @@ namespace Base2io.Ventanas.Views
             {
                 positionHotkey.Clear();
             }
+        }
+
+        private void HotkeyEntryBox_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            PositionHotkey entry = new PositionHotkey
+                {
+                    KeyCode = (Keys)KeyInterop.VirtualKeyFromKey(e.Key),
+                    IsCtrlKeyUsed = Keyboard.Modifiers.HasFlag(ModifierKeys.Control),
+                    IsAltKeyUsed = Keyboard.Modifiers.HasFlag(ModifierKeys.Alt),
+                    IsShiftKeyUsed = Keyboard.Modifiers.HasFlag(ModifierKeys.Shift),
+                    IsWinKeyUsed = Keyboard.Modifiers.HasFlag(ModifierKeys.Windows)
+                };
+
+            HotkeyEntryBox.Text = entry.KeyBindingString;
         }
     }
 }
