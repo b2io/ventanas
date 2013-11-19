@@ -50,6 +50,20 @@ namespace Base2io.Ventanas.Views
             }
         }
 
+        private bool _isSelectedHotkeyValid;
+        public bool IsSelectedHotkeyValid
+        {
+            get { return _isSelectedHotkeyValid; }
+            set
+            {
+                if (value != _isSelectedHotkeyValid)
+                {
+                    _isSelectedHotkeyValid = value;
+                    OnPropertyChanged("IsSelectedHotkeyValid");
+                }
+            }
+        }
+
 
         #endregion
 
@@ -75,6 +89,7 @@ namespace Base2io.Ventanas.Views
             {
                 positionHotkey.Clear();
             }
+            IsSelectedHotkeyValid = false;
         }
 
         private void HotkeyEntryBox_OnKeyDown(object sender, KeyEventArgs e)
@@ -98,6 +113,9 @@ namespace Base2io.Ventanas.Views
         private void HotkeyList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ResetHotkeyEntry();
+
+            PositionHotkey selectedHotkey = HotkeyList.SelectedItem as PositionHotkey;
+            IsSelectedHotkeyValid = selectedHotkey != null && selectedHotkey.KeyCode != Keys.None;
         }
 
         private void HotkeyEntryBox_OnInitialized(object sender, EventArgs e)
@@ -121,6 +139,8 @@ namespace Base2io.Ventanas.Views
             selectedHotkey.IsAltKeyUsed = hotkeyEntry.IsAltKeyUsed;
             selectedHotkey.IsShiftKeyUsed = hotkeyEntry.IsShiftKeyUsed;
             selectedHotkey.IsWinKeyUsed = hotkeyEntry.IsWinKeyUsed;
+
+            IsSelectedHotkeyValid = false;
         }
 
         #endregion

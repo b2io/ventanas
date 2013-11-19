@@ -85,7 +85,7 @@
 
                     <Label Content="Current Hotkey: " Style="{StaticResource FormLabelStyle}" />
                     <Label Content="{Binding SelectedValue.KeyBindingString, ElementName=HotkeyList}" Grid.Column="1" />
-                    <Button Content="Remove" Grid.Column="2" Margin="5,0,0,5" Click="RemoveButtonClick" />
+                    <Button Content="Remove" Grid.Column="2" Margin="5,0,0,5" IsEnabled="{Binding IsSelectedHotkeyValid}" Click="RemoveButtonClick" />
 
                     <Label Content="New Hotkey: " Style="{StaticResource FormLabelStyle}" Grid.Row="1" />
                     <TextBox Name="HotkeyEntryBox" IsReadOnly="False" Grid.Row="1"  Grid.Column="1" PreviewKeyDown="HotkeyEntryBox_OnKeyDown" Initialized="HotkeyEntryBox_OnInitialized" GotFocus="HotkeyEntryBox_OnGotFocus" Margin="0,3,0,-3" />
