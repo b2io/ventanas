@@ -6,7 +6,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Shapes;
 using Base2io.Ventanas.Annotations;
+using Base2io.Ventanas.Enums;
 using Base2io.Ventanas.Logic;
 using Base2io.Ventanas.Model;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
@@ -20,7 +22,7 @@ namespace Base2io.Ventanas.Views
     {
         private const string HOTKEY_PROMPT = "Click to enter a new hotkey";
 
-        private PositionHotkey hotkeyEntry;
+        private PositionHotkey _hotkeyEntry;
 
         #region Constructor
 
@@ -28,6 +30,13 @@ namespace Base2io.Ventanas.Views
         {
             CustomizedHotkeys = new ObservableCollection<PositionHotkey>(WindowPlacement.Instance.PositionHotkeys);
             InitializeComponent();
+
+            // Initialize the visualizer selection.
+            PositionHotkey selectedHotkey = HotkeyList.SelectedItem as PositionHotkey;
+            if (selectedHotkey != null)
+            {
+                UpdateVisualizer(selectedHotkey);
+            }
         } 
 
         #endregion
@@ -97,7 +106,7 @@ namespace Base2io.Ventanas.Views
             // Mark as handled so that the text control doesn't attempt to handle it.
             e.Handled = true;
 
-            hotkeyEntry = new PositionHotkey
+            _hotkeyEntry = new PositionHotkey
                 {
                     KeyCode = (Keys)KeyInterop.VirtualKeyFromKey(e.Key),
                     IsCtrlKeyUsed = Keyboard.Modifiers.HasFlag(ModifierKeys.Control),
@@ -106,7 +115,7 @@ namespace Base2io.Ventanas.Views
                     IsWinKeyUsed = Keyboard.Modifiers.HasFlag(ModifierKeys.Windows)
                 };
 
-            HotkeyEntryBox.Text = hotkeyEntry.KeyBindingString;
+            HotkeyEntryBox.Text = _hotkeyEntry.KeyBindingString;
             IsHotkeyEntered = true;
         }
 
@@ -116,6 +125,47 @@ namespace Base2io.Ventanas.Views
 
             PositionHotkey selectedHotkey = HotkeyList.SelectedItem as PositionHotkey;
             IsSelectedHotkeyValid = selectedHotkey != null && selectedHotkey.KeyCode != Keys.None;
+
+            UpdateVisualizer(selectedHotkey);
+        }
+
+        private void UpdateVisualizer(PositionHotkey selectedHotkey)
+        {
+            if (Visualizer == null) return;
+
+            switch (selectedHotkey.WindowPosition)
+            {
+                case WindowPosition.LeftOneThird:
+                    LeftThird.Visibility = Visibility.Visible;
+                    break;
+                case WindowPosition.LeftHalf:
+                    LeftHalf.Visibility = Visibility.Visible;
+                    break;
+                case WindowPosition.LeftTwoThirds:
+                    LeftTwoThirds.Visibility = Visibility.Visible;
+                    break;
+                case WindowPosition.RightOneThird:
+                    RightThird.Visibility = Visibility.Visible;
+                    break;
+                case WindowPosition.RightHalf:
+                    RightHalf.Visibility = Visibility.Visible;
+                    break;
+                case WindowPosition.RightTwoThirds:
+                    RightTwoThirds.Visibility = Visibility.Visible;
+                    break;
+                case WindowPosition.TopHalf:
+                    TopHalf.Visibility = Visibility.Visible;
+                    break;
+                case WindowPosition.BottomHalf:
+                    BottomHalf.Visibility = Visibility.Visible;
+                    break;
+                case WindowPosition.Center:
+                    Center.Visibility = Visibility.Visible;
+                    break;
+                case WindowPosition.Fill:
+                    Fill.Visibility = Visibility.Visible;
+                    break;
+            }
         }
 
         private void HotkeyEntryBox_OnInitialized(object sender, EventArgs e)
@@ -134,11 +184,11 @@ namespace Base2io.Ventanas.Views
             PositionHotkey selectedHotkey = (PositionHotkey)HotkeyList.SelectedItem;
 
             // Update the selected hotkey to have the new values:
-            selectedHotkey.KeyCode = hotkeyEntry.KeyCode;
-            selectedHotkey.IsCtrlKeyUsed = hotkeyEntry.IsCtrlKeyUsed;
-            selectedHotkey.IsAltKeyUsed = hotkeyEntry.IsAltKeyUsed;
-            selectedHotkey.IsShiftKeyUsed = hotkeyEntry.IsShiftKeyUsed;
-            selectedHotkey.IsWinKeyUsed = hotkeyEntry.IsWinKeyUsed;
+            selectedHotkey.KeyCode = _hotkeyEntry.KeyCode;
+            selectedHotkey.IsCtrlKeyUsed = _hotkeyEntry.IsCtrlKeyUsed;
+            selectedHotkey.IsAltKeyUsed = _hotkeyEntry.IsAltKeyUsed;
+            selectedHotkey.IsShiftKeyUsed = _hotkeyEntry.IsShiftKeyUsed;
+            selectedHotkey.IsWinKeyUsed = _hotkeyEntry.IsWinKeyUsed;
 
             IsSelectedHotkeyValid = false;
         }
@@ -155,6 +205,15 @@ namespace Base2io.Ventanas.Views
                 HotkeyEntryBox.Text = HOTKEY_PROMPT;
             }
             IsHotkeyEntered = false;
+
+            // Clear selection rectangles:
+            if (Visualizer != null)
+            {
+                foreach (Rectangle rectangle in Visualizer.Children)
+                {
+                    rectangle.Visibility = Visibility.Hidden;
+                }
+            }
         }
 
         #endregion
@@ -167,6 +226,5 @@ namespace Base2io.Ventanas.Views
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }

@@ -69,7 +69,45 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <!-- TODO: Visualizer -->
+                
+                <!-- Visualizer -->
+                <Grid Name="Visualizer">
+                    <Grid.Resources>
+                        <Style TargetType="Rectangle">
+                            <Setter Property="Fill" Value="DarkSeaGreen"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    
+                    <Rectangle Name="LeftThird" Grid.ColumnSpan="2" Grid.RowSpan="6" Visibility="Hidden"/>
+                    <Rectangle Name="LeftHalf" Grid.ColumnSpan="3" Grid.RowSpan="6" Visibility="Hidden"/>
+                    <Rectangle Name="LeftTwoThirds" Grid.ColumnSpan="4" Grid.RowSpan="6" Visibility="Hidden"/>
+
+                    <Rectangle Name="RightThird" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="6" Visibility="Hidden" />
+                    <Rectangle Name="RightHalf" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="6" Visibility="Hidden"/>
+                    <Rectangle Name="RightTwoThirds" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="6" Visibility="Hidden"/>
+
+                    <Rectangle Name="TopHalf" Grid.RowSpan="3" Grid.ColumnSpan="6" Visibility="Hidden"/>
+                    <Rectangle Name="BottomHalf" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="6" Visibility="Hidden"/>
+
+                    <Rectangle Name="Center" Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Visibility="Hidden"/>
+                    <Rectangle Name="Fill" Grid.RowSpan="6" Grid.ColumnSpan="6" Visibility="Hidden"/>
+                </Grid>
 
                 <!-- Hotkey Editor -->
                 <Grid Grid.Row="1">
