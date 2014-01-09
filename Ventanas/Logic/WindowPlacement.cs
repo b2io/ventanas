@@ -25,7 +25,7 @@ namespace Base2io.Ventanas.Logic
         private const int SW_MINIMIZE = 6;
         private const int SW_RESTORE = 9;
 
-        private Hotkeys _hotkeyService;
+        private bool _isDisabled = false;
 
         #endregion
 
@@ -37,10 +37,10 @@ namespace Base2io.Ventanas.Logic
         {
         }
 
-        private static WindowPlacement _instance;
+        private static WindowPlacement _INSTANCE;
         public static WindowPlacement Instance
         {
-            get { return _instance ?? (_instance = new WindowPlacement()); }
+            get { return _INSTANCE ?? (_INSTANCE = new WindowPlacement()); }
         }
 
         #endregion
@@ -49,21 +49,38 @@ namespace Base2io.Ventanas.Logic
 
         public void RegisterHotkeys()
         {
-            _hotkeyService = Hotkeys.Instance;
+            _isDisabled = false;
             PositionHotkeys = GetHotkeySettings();
             RegisterPositionHotkeys(PositionHotkeys);
         }
 
         public void RegisterHotkeys(List<PositionHotkey> hotkeys)
         {
+            _isDisabled = false;
+
             // Save settings:
             Properties.Settings.Default.CustomHotkeys = hotkeys;
             Properties.Settings.Default.Save();
 
             // Clear and re-register hotkeys:
-            _hotkeyService.ClearRegisteredHotkeys();
+            Hotkeys.Instance.ClearRegisteredHotkeys();
             PositionHotkeys = hotkeys;
             RegisterPositionHotkeys(hotkeys);
+        }
+
+        public void DisableHotkeys()
+        {
+            Hotkeys.Instance.ClearRegisteredHotkeys();
+            _isDisabled = true;
+        }
+
+        public void EnableHotkeys()
+        {
+            if (_isDisabled)
+            {
+                RegisterHotkeys();
+                _isDisabled = false;
+            }
         }
 
         public static void PositionActiveWindowByRatio(DockStyle position, float sizePercentage)
@@ -256,12 +273,12 @@ namespace Base2io.Ventanas.Logic
             }
         }
 
-        private void RegisterPositionHotkeys(List<PositionHotkey> hotkeys)
+        private void RegisterPositionHotkeys(IEnumerable<PositionHotkey> hotkeys)
         {
 
             foreach (PositionHotkey hotkey in hotkeys)
             {
-                _hotkeyService.RegisterHotkey(hotkey.KeyCode,
+                Hotkeys.Instance.RegisterHotkey(hotkey.KeyCode,
                                               GetWindowPositionEventHandler(hotkey.WindowPosition),
                                               hotkey.IsCtrlKeyUsed,
                                               hotkey.IsAltKeyUsed,
@@ -343,13 +360,12 @@ namespace Base2io.Ventanas.Logic
             {
                 if (disposing)
                 {
-                    if (_hotkeyService != null)
+                    if (Hotkeys.Instance != null)
                     {
-                        _hotkeyService.Dispose();
+                        Hotkeys.Instance.Dispose();
                     }
                 }
 
-                _hotkeyService = null;
                 _disposed = true;
             }
         }

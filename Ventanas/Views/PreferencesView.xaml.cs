@@ -28,6 +28,9 @@ namespace Base2io.Ventanas.Views
 
         public Preferences()
         {
+            // Disable the hotkeys temporarily so that the preference window doesn't move around.
+            WindowPlacement.Instance.DisableHotkeys();
+
             CustomizedHotkeys = new ObservableCollection<PositionHotkey>(WindowPlacement.Instance.PositionHotkeys);
             InitializeComponent();
 
@@ -191,6 +194,11 @@ namespace Base2io.Ventanas.Views
             selectedHotkey.IsWinKeyUsed = _hotkeyEntry.IsWinKeyUsed;
 
             IsSelectedHotkeyValid = false;
+        }
+
+        private void Preferences_OnClosing(object sender, CancelEventArgs e)
+        {
+            WindowPlacement.Instance.EnableHotkeys();
         }
 
         #endregion

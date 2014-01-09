@@ -9,6 +9,7 @@
         Width="600"
         MinHeight="400"
         MinWidth="400"
+        Closing="Preferences_OnClosing"
         >
     <Window.Resources>
         <converters:EnumStringConverter x:Key="EnumConverter" />
