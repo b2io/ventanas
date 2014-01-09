@@ -51,7 +51,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Label Content="Hotkeys" FontWeight="Bold" Margin="0, 0, 0, 10"/>
+                <Label Content="Hotkeys" FontWeight="Bold" Margin="0, 0, 0, 5"/>
 
                 <ListView Name="HotkeyList" Grid.Row="1" ItemsSource="{Binding CustomizedHotkeys}" SelectedIndex="0" SelectionChanged="HotkeyList_OnSelectionChanged" Margin="0,1,0,-1">
                     <ListView.View>
@@ -70,46 +70,55 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <!-- Visualizer -->
-                <Border BorderBrush="#333" BorderThickness="2" Margin="10" Padding="2">
-                    <Grid Name="Visualizer">
-                        <Grid.Resources>
-                            <Style TargetType="Rectangle">
-                                <Setter Property="Fill" Value="DarkSeaGreen"/>
-                            </Style>
-                        </Grid.Resources>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Label Content="Region" FontWeight="Bold" Margin="5, 0, 0, 5"/>
 
-                        <Rectangle Name="LeftThird" Grid.ColumnSpan="2" Grid.RowSpan="6" Visibility="Hidden"/>
-                        <Rectangle Name="LeftHalf" Grid.ColumnSpan="3" Grid.RowSpan="6" Visibility="Hidden"/>
-                        <Rectangle Name="LeftTwoThirds" Grid.ColumnSpan="4" Grid.RowSpan="6" Visibility="Hidden"/>
+                    <!-- Visualizer -->
+                    <Border Grid.Row="1" BorderBrush="#333" BorderThickness="2" Margin="10, 0, 10, 10" Padding="2">
+                        <Grid Name="Visualizer">
+                            <Grid.Resources>
+                                <Style TargetType="Rectangle">
+                                    <Setter Property="Fill" Value="DarkSeaGreen"/>
+                                </Style>
+                            </Grid.Resources>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
 
-                        <Rectangle Name="RightThird" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="6" Visibility="Hidden" />
-                        <Rectangle Name="RightHalf" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="6" Visibility="Hidden"/>
-                        <Rectangle Name="RightTwoThirds" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="6" Visibility="Hidden"/>
+                            <Rectangle Name="LeftThird" Grid.ColumnSpan="2" Grid.RowSpan="6" Visibility="Hidden"/>
+                            <Rectangle Name="LeftHalf" Grid.ColumnSpan="3" Grid.RowSpan="6" Visibility="Hidden"/>
+                            <Rectangle Name="LeftTwoThirds" Grid.ColumnSpan="4" Grid.RowSpan="6" Visibility="Hidden"/>
 
-                        <Rectangle Name="TopHalf" Grid.RowSpan="3" Grid.ColumnSpan="6" Visibility="Hidden"/>
-                        <Rectangle Name="BottomHalf" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="6" Visibility="Hidden"/>
+                            <Rectangle Name="RightThird" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="6" Visibility="Hidden" />
+                            <Rectangle Name="RightHalf" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="6" Visibility="Hidden"/>
+                            <Rectangle Name="RightTwoThirds" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="6" Visibility="Hidden"/>
 
-                        <Rectangle Name="Center" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="4" Visibility="Hidden"/>
-                        <Rectangle Name="Fill" Grid.RowSpan="6" Grid.ColumnSpan="6" Visibility="Hidden"/>
-                    </Grid>
-                </Border>
+                            <Rectangle Name="TopHalf" Grid.RowSpan="3" Grid.ColumnSpan="6" Visibility="Hidden"/>
+                            <Rectangle Name="BottomHalf" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="6" Visibility="Hidden"/>
+
+                            <Rectangle Name="Center" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="4" Visibility="Hidden"/>
+                            <Rectangle Name="Fill" Grid.RowSpan="6" Grid.ColumnSpan="6" Visibility="Hidden"/>
+                        </Grid>
+                    </Border>
+                </Grid>
 
                 <!-- Hotkey Editor -->
                 <Grid Grid.Row="1">
