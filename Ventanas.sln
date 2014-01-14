@@ -10,16 +10,40 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E5BCEF
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "VentanasInstaller", "VentanasInstaller\VentanasInstaller.isproj", "{529A1C27-0E9B-47EC-8481-756624FA716D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7B8548DC-BB8E-49E7-9AB2-067F4CFB892B} = {7B8548DC-BB8E-49E7-9AB2-067F4CFB892B}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
 		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
 		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B8548DC-BB8E-49E7-9AB2-067F4CFB892B}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{7B8548DC-BB8E-49E7-9AB2-067F4CFB892B}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
 		{7B8548DC-BB8E-49E7-9AB2-067F4CFB892B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7B8548DC-BB8E-49E7-9AB2-067F4CFB892B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B8548DC-BB8E-49E7-9AB2-067F4CFB892B}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B8548DC-BB8E-49E7-9AB2-067F4CFB892B}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
 		{7B8548DC-BB8E-49E7-9AB2-067F4CFB892B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B8548DC-BB8E-49E7-9AB2-067F4CFB892B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B8548DC-BB8E-49E7-9AB2-067F4CFB892B}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{7B8548DC-BB8E-49E7-9AB2-067F4CFB892B}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{529A1C27-0E9B-47EC-8481-756624FA716D}.CD_ROM|Any CPU.ActiveCfg = CD_ROM
+		{529A1C27-0E9B-47EC-8481-756624FA716D}.CD_ROM|Any CPU.Build.0 = CD_ROM
+		{529A1C27-0E9B-47EC-8481-756624FA716D}.Debug|Any CPU.ActiveCfg = DVD-5
+		{529A1C27-0E9B-47EC-8481-756624FA716D}.Debug|Any CPU.Build.0 = DVD-5
+		{529A1C27-0E9B-47EC-8481-756624FA716D}.DVD-5|Any CPU.ActiveCfg = DVD-5
+		{529A1C27-0E9B-47EC-8481-756624FA716D}.DVD-5|Any CPU.Build.0 = DVD-5
+		{529A1C27-0E9B-47EC-8481-756624FA716D}.Release|Any CPU.ActiveCfg = SingleImage
+		{529A1C27-0E9B-47EC-8481-756624FA716D}.Release|Any CPU.Build.0 = SingleImage
+		{529A1C27-0E9B-47EC-8481-756624FA716D}.SingleImage|Any CPU.ActiveCfg = SingleImage
+		{529A1C27-0E9B-47EC-8481-756624FA716D}.SingleImage|Any CPU.Build.0 = SingleImage
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
