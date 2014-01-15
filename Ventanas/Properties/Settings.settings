@@ -5,5 +5,11 @@
     <Setting Name="CustomHotkeys" Type="System.Collections.Generic.List`1[Base2io.Ventanas.Model.PositionHotkey]" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="WindowsStartup" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="PreviouslyRan" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

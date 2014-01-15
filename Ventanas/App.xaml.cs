@@ -7,13 +7,15 @@ namespace Base2io.Ventanas
     // <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : System.Windows.Application
+    public partial class App
     {
         WindowPlacement _windowPlacement;
         TaskbarIcon _tbi;
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            InitializeInstalledApplication();
+
             _tbi = (TaskbarIcon)FindResource("TrayIcon");
 
             _windowPlacement = WindowPlacement.Instance;
@@ -22,7 +24,19 @@ namespace Base2io.Ventanas
             base.OnStartup(e);
         }
 
-
+        private void InitializeInstalledApplication()
+        {
+            // Check to see if this is the first time the application has been ran.
+            if (!Ventanas.Properties.Settings.Default.PreviouslyRan)
+            {
+                // Mark the application for windows startup.
+                ApplicationSettings.SetWindowsStartup();
+                
+                // Mark the application as initialized.
+                Ventanas.Properties.Settings.Default.PreviouslyRan = true;
+                Ventanas.Properties.Settings.Default.Save();
+            }
+        }
 
         protected override void OnExit(ExitEventArgs e)
         {

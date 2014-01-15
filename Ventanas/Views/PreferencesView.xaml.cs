@@ -32,6 +32,9 @@ namespace Base2io.Ventanas.Views
             WindowPlacement.Instance.DisableHotkeys();
 
             CustomizedHotkeys = new ObservableCollection<PositionHotkey>(WindowPlacement.Instance.PositionHotkeys);
+
+            IsWindowsStartup = Properties.Settings.Default.WindowsStartup;
+
             InitializeComponent();
 
             // Initialize the visualizer selection.
@@ -76,6 +79,19 @@ namespace Base2io.Ventanas.Views
             }
         }
 
+        private bool _isWindowsStartup;
+        public bool IsWindowsStartup
+        {
+            get { return _isWindowsStartup; }
+            set
+            {
+                if (value != _isWindowsStartup)
+                {
+                    _isWindowsStartup = value;
+                    OnPropertyChanged("IsWindowsStartup");
+                }
+            }
+        }
 
         #endregion
 
@@ -89,6 +105,16 @@ namespace Base2io.Ventanas.Views
         private void SaveButtonClick(object sender, RoutedEventArgs e)
         {
             WindowPlacement.Instance.RegisterHotkeys(CustomizedHotkeys.ToList());
+
+            if (IsWindowsStartup)
+            {
+                ApplicationSettings.SetWindowsStartup();
+            }
+            else
+            {
+                ApplicationSettings.RemoveWindowsStartup();
+            }
+
             Close();
         }
 
@@ -234,5 +260,6 @@ namespace Base2io.Ventanas.Views
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
+
     }
 }
