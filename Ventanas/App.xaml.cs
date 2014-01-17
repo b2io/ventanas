@@ -27,14 +27,10 @@ namespace Base2io.Ventanas
         private void InitializeInstalledApplication()
         {
             // Check to see if this is the first time the application has been ran.
-            if (!Ventanas.Properties.Settings.Default.PreviouslyRan)
+            if (Ventanas.Properties.Settings.Default.WindowsStartup)
             {
                 // Mark the application for windows startup.
                 ApplicationSettings.SetWindowsStartup();
-                
-                // Mark the application as initialized.
-                Ventanas.Properties.Settings.Default.PreviouslyRan = true;
-                Ventanas.Properties.Settings.Default.Save();
             }
         }
 

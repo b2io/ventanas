@@ -45,17 +45,5 @@ namespace Base2io.Ventanas.Properties {
                 this["WindowsStartup"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool PreviouslyRan {
-            get {
-                return ((bool)(this["PreviouslyRan"]));
-            }
-            set {
-                this["PreviouslyRan"] = value;
-            }
-        }
     }
 }
